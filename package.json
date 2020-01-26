@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/Aleshsparrow/Employee-Tracker#readme",
   "dependencies": {
-    "express": "^4.17.1",
     "inquirer": "^7.0.4",
     "mysql": "^2.18.1"
   }
