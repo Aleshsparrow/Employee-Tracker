@@ -3,25 +3,9 @@ var inquirer = require("inquirer");
 var add = require("./action/add");
 var view = require("./action/view")
 var update = require("./action/update")
+var connection = require("./action/connection")
 
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   port: 3306,
-//   user: "",
-//   password: "",
-//   database: "employee-tracker_DB"
-// });
-
-// connection.connect(function(err) {
-//   if (err) {
-//     console.error("error connecting: " + err.stack);
-//     return;
-//   }
-//   console.log("connected as id " + connection.threadId);
-// });
-
-  start()
-
+  
 function start() {
   inquirer
     .prompt({
@@ -45,4 +29,8 @@ function start() {
       }
     });
 }
+start()
 
+
+
+module.exports = start;
