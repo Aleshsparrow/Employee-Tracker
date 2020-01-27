@@ -1,5 +1,6 @@
 var inquirer = require("inquirer")
 var connection = require("./connection")
+var cTable = require("console.table")
 
 
 
@@ -26,21 +27,21 @@ function view(){
 function viewDepartment() {
   connection.query("SELECT * FROM department", function(err, res){
     if(err) throw err
-    console.log(res)
+   console.table(res)
   })
 }
 
 function viewRole() {
   connection.query("SELECT * FROM role", function(err, res){
     if(err) throw err
-    console.log(res)
+    console.table(res)
   })
 }
 
 function viewEmployees() {
   connection.query("SELECT * FROM employee", function(err, res){
     if(err) throw err
-    console.log(res)
+    console.table(res)
   })
 }
 
