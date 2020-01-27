@@ -18,6 +18,9 @@ I used inquirer to propmt some questions and the program will perform some funct
 ![console.png](./Assets/console.png)
 ## Using console.table to view the departments
 ![console.table](./Assets/console.table.png)
+## Adding employee
+![console.table](./Assets/adding-employee.png)
+
 
 
 

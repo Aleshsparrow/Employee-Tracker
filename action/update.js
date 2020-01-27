@@ -21,5 +21,4 @@ function update(){
     WHERE ${res.which}`)
   })
   }
-update()
   module.exports = update;
