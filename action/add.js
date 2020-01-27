@@ -9,15 +9,15 @@ function add(){
       name: "what",
       type: "list",
       message: "What would you like add?",
-      choices: ["Departments", "Roles", "Employees"]
+      choices: ["Department", "Role", "Employee"]
     }).then(function(res){
-      if (res.what === "Departments"){
+      if (res.what === "Department"){
         addDepartment();
       }
       else if(res.what === "Role"){
         addRole();
       }
-      else if(res.what === "Employees"){
+      else if(res.what === "Employee"){
         addEmployess();
       }
     })
@@ -43,8 +43,8 @@ function add(){
   }
 
   function addRole(){
-    inquirer.
-    prompt([
+    inquirer
+    .prompt([
       {
         name: "title",
         type: "input",
@@ -52,7 +52,7 @@ function add(){
     },
     {
         name: "salary",
-        type: "number",
+        type: "decimal",
         message: "How much do you earn as salary?"
     },
     {
@@ -60,7 +60,58 @@ function add(){
         type: "number",
         message: "What is your department id number?"
     },
-    ])
+    ]).then(function(res){
+      console.log(res)
+          connection.query("INSERT INTO role SET ?",{
+            title: res.title,
+            salary: res.salary,
+            department_id: res.dept
+          },function(err) {
+            if (err) throw err;
+            console.log("The role was added successfully!");
+            start();
+          }
+          )
+    })
+  }
+
+
+  function addEmployess(){
+    inquirer
+    .prompt([
+      {
+        name: "firstName",
+        type: "input",
+        message: "What is your first name?"
+    },
+    {
+        name: "lastName",
+        type: "input",
+        message: "What is your last name?"
+    },
+    {
+        name: "roleId",
+        type: "number",
+        message: "What is your role id number?"
+    },
+    {
+        name: "managerId",
+        type: "number",
+        message: "What is your manager's id number?"
+    }
+    ]).then(function(res){
+      console.log(res)
+      connection.query("INSERT INTO employee SET ?",{
+        first_name: res.firstName,
+        last_name: res.lastName,
+        role_id: res.roleId,
+        manager_id: res.managerId
+      },function(err) {
+        if (err) throw err;
+        console.log("The employee was added successfully!");
+        start();
+      })
+    })
   }
 
   module.exports = add;
