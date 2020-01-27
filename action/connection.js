@@ -4,8 +4,8 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
-    user: "root",
-    password: "root",
+    user: "",
+    password: "",
     database: "employee_tracker_DB"
   });
   
@@ -14,6 +14,7 @@ var connection = mysql.createConnection({
       console.error("error connecting: " + err.stack);
       return;
     }
+
     console.log("connected as id " + connection.threadId);
   });
   

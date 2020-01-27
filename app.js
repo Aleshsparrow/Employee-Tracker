@@ -1,4 +1,3 @@
-// var mysql = require("mysql");
 var inquirer = require("inquirer");
 var add = require("./action/add");
 var view = require("./action/view")

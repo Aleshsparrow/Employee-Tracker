@@ -18,9 +18,30 @@ function view(){
         viewRole();
       }
       else if(res.what === "Employees"){
-        viewEmployess();
+        viewEmployees();
       }
     })
   }
+
+function viewDepartment() {
+  connection.query("SELECT * FROM department", function(err, res){
+    if(err) throw err
+    console.log(res)
+  })
+}
+
+function viewRole() {
+  connection.query("SELECT * FROM role", function(err, res){
+    if(err) throw err
+    console.log(res)
+  })
+}
+
+function viewEmployees() {
+  connection.query("SELECT * FROM employee", function(err, res){
+    if(err) throw err
+    console.log(res)
+  })
+}
 
   module.exports = view;
